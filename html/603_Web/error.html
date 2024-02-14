@@ -85,6 +85,39 @@
     video {
       display: inline-block;
     }
+    body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        form {
+            margin: 100px auto;
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text1"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        
   </style>
 </head>
 <body>
@@ -94,7 +127,7 @@
     <p style="font-size: 100%;">2017届3班</p>
   </div>
   <div>
-    <a href="#home">主页</a>
+    <a href="index.html">主页</a>
     <a href="#news">合照</a>
     <a href="#contact">怪事</a>
   </div>
@@ -105,10 +138,17 @@
 </div>
 
 <div class="content">
-  <img src="assets/Main_img.JPG" alt="这照片...一言难尽..." style="max-width: 100%;">
-  <p style="text-align: center;font-size: 30px;">欢迎来到竹溪小学2017届3班的主页！</p>
+  <p style="text-align: center;font-size: 30px;">登录了就给你看</p>
+  <form>
+    <h2>Login</h2>
+    <input type="text1" placeholder="用户名..." id="name" required>
+    <input type="password" placeholder="密码..." id="pass" required>
+    <input type="submit" value="登录" onclick="logins()">
+    <input type="submit" value="取消" onclick="returns()">
+  </form>
+  <br>
   
-  <iframe src="https://player.bilibili.com/player.html?bvid=BV1fj411S7b6&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%;height: 500px;"> </iframe>
+  
 </div>
 <div class="footer">
   <p>作者：Minecraft一角钱</p>
@@ -138,6 +178,12 @@
       }else{
         window.location.href = "assets\\"+url;
       }
+    }
+    function returns() {
+        window.location.href = "index.html";
+    }
+    function logins() {
+      window.location.href = "index.html";
     }
   
 </script>
