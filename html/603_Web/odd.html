@@ -12,6 +12,7 @@
 
     .navbar {
       overflow: hidden;
+      
       background-color: #096800;
       position: fixed;
       top: 0;
@@ -42,14 +43,14 @@
       align-items: center;
     }
 
-    .search-box input[type="text"] {
+    .search-box input[type=text] {
       padding: 8px;
       margin-right: 5%;
       
     }
 
     .content {
-      padding-top: 100px;
+      padding-top: 60px;
     }
     .firework {
       position: absolute;
@@ -86,6 +87,14 @@
     video {
       display: inline-block;
     }
+    .bullet {
+            position: absolute;
+            font-size: 20px;
+            color: white;
+            text-shadow: 1px 1px 1px black;
+            white-space: nowrap;
+            overflow: hidden;
+        }
   </style>
 </head>
 <body>
@@ -100,20 +109,19 @@
     <a href="odd.html">怪事</a>
   </div>
   <div class="search-box" style="margin-right: 50px;">
-    <input type="text" style="height: 10px;" id="urlInput" placeholder="搜索学号...">
+    <input type=text style="height: 10px;" id="urlInput" placeholder="搜索学号...">
     <button type="submit" style="height: 30px;width: 100px;" onclick="redirectToUrl()">搜索</button>
   </div>
 </div>
 
 <div class="content">
-  <h1>写不出来，找作者投稿！</h1>
+  <h5>由于真的没素材，所以放一点Minecraft的闪烁标语吧！</h5>
+  <div id="container"></div>
 </div>
 <div class="footer">
   <p>作者：Minecraft一角钱</p>
   <a href="https://minecraftyjq.github.io">作者个人主页</a>
-  <br>
   <a href="https://space.bilibili.com/1527364468">作者B站主页</a>
-  <br>
   <a href="https://afdian.net/a/yjq666">捐赠</a>
 </div>
 
@@ -132,6 +140,405 @@
       var url = document.getElementById("urlInput").value;
       window.location.href = "assets\\img\\"+url+"\\index.html";
     }
+
+
+
+  // 获取弹幕容器
+  var container = document.getElementById('container');
+    // 定义弹幕数据
+    var data = [
+        { text: "As seen on TV!" },
+        { text: "Awesome!" },
+        { text: "100% pure!" },
+        { text: "May contain nuts!" },
+        { text: "More polygons!" },
+        { text: "Moderately attractive!" },
+        { text: "Limited edition!" },
+        { text: "Flashing letters!" },
+        { text: "It's here!" },
+        { text: "Best in class!" },
+        { text: "It's finished!" },
+        { text: "Kind of dragon free!" },
+        { text: "Excitement!" },
+        { text: "More than 500 sold!" },
+        { text: "One of a kind!" },
+        { text: "Heaps of hits on YouTube!" },
+        { text: "Indev!" },
+        { text: "Spiders everywhere!" },
+        { text: "Check it out!" },
+        { text: "Holy cow, man!" },
+        { text: "It's a game!" },
+        { text: "Made in Sweden!" },
+        { text: "Uses LWJGL!" },
+        { text: "Reticulating splines!" },
+        { text: "Minecraft!" },
+        { text: "Yaaay!" },
+        { text: "Singleplayer!" },
+        { text: "Keyboard compatible!" },
+        { text: "Ingots!" },
+        { text: "Exploding creepers!" },
+        { text: "That's no moon!" },
+        { text: "l33t!" },
+        { text: "Create!" },
+        { text: "Survive!" },
+        { text: "Dungeon!" },
+        { text: "Exclusive!" },
+        { text: "The bee's knees!" },
+        { text: "Closed source!" },
+        { text: "Classy!" },
+        { text: "Wow!" },
+        { text: "Not on steam!" },
+        { text: "Oh man!" },
+        { text: "Awesome community!" },
+        { text: "Pixels!" },
+        { text: "Teetsuuuuoooo!" },
+        { text: "Kaaneeeedaaaa!" },
+        { text: "Now with difficulty!" },
+        { text: "Enhanced!" },
+        { text: "90% bug free!" },
+        { text: "Pretty!" },
+        { text: "12 herbs and spices!" },
+        { text: "Fat free!" },
+        { text: "Absolutely no memes!" },
+        { text: "Free dental!" },
+        { text: "Ask your doctor!" },
+        { text: "Minors welcome!" },
+        { text: "Cloud computing!" },
+        { text: "Legal in Finland!" },
+        { text: "Hard to label!" },
+        { text: "Technically good!" },
+        { text: "Bringing home the bacon!" },
+        { text: "Indie!" },
+        { text: "GOTY!" },
+        { text: "Ceci n'est pas une title screen!" },
+        { text: "Euclidian!" },
+        { text: "Now in 3D!" },
+        { text: "Inspirational!" },
+        { text: "Herregud!" },
+        { text: "Complex cellular automata!" },
+        { text: "Yes, sir!" },
+        { text: "Played by cowboys!" },
+        { text: "Now on OpenGL 3.2 core profile!" },
+        { text: "Thousands of colors!" },
+        { text: "Try it!" },
+        { text: "Age of Wonders is better!" },
+        { text: "Try the mushroom stew!" },
+        { text: "Sensational!" },
+        { text: "Hot tamale, hot hot tamale!" },
+        { text: "Play him off, keyboard cat!" },
+        { text: "Guaranteed!" },
+        { text: "Macroscopic!" },
+        { text: "Bring it on!" },
+        { text: "Random splash!" },
+        { text: "Call your mother!" },
+        { text: "Monster infighting!" },
+        { text: "Loved by millions!" },
+        { text: "Ultimate edition!" },
+        { text: "Freaky!" },
+        { text: "You've got a brand new key!" },
+        { text: "Water proof!" },
+        { text: "Uninflammable!" },
+        { text: "Whoa, dude!" },
+        { text: "All inclusive!" },
+        { text: "Tell your friends!" },
+        { text: "NP is not in P!" },
+        { text: "Music by C418!" },
+        { text: "Livestreamed!" },
+        { text: "Haunted!" },
+        { text: "Polynomial!" },
+        { text: "Terrestrial!" },
+        { text: "All is full of love!" },
+        { text: "Full of stars!" },
+        { text: "Scientific!" },
+        { text: "Not as cool as Spock!" },
+        { text: "Collaborate and listen!" },
+        { text: "Never dig down!" },
+        { text: "Take frequent breaks!" },
+        { text: "Not linear!" },
+        { text: "Han shot first!" },
+        { text: "Nice to meet you!" },
+        { text: "Buckets of lava!" },
+        { text: "Ride the pig!" },
+        { text: "Larger than Earth!" },
+        { text: "sqrt(-1) love you!" },
+        { text: "Phobos anomaly!" },
+        { text: "Punching wood!" },
+        { text: "Falling off cliffs!" },
+        { text: "1% sugar!" },
+        { text: "150% hyperbole!" },
+        { text: "Synecdoche!" },
+        { text: "Let's danec!" },
+        { text: "Seecret Friday update!" },
+        { text: "Reference implementation!" },
+        { text: "Kiss the sky!" },
+        { text: "20 GOTO 10!" },
+        { text: "Verlet intregration!" },
+        { text: "Peter Griffin!" },
+        { text: "Do not distribute!" },
+        { text: "Cogito ergo sum!" },
+        { text: "4815162342 lines of code!" },
+        { text: "A skeleton popped out!" },
+        { text: "The sum of its parts!" },
+        { text: "BTAF used to be good!" },
+        { text: "I miss ADOM!" },
+        { text: "umop-apisdn!" },
+        { text: "OICU812!" },
+        { text: "Bring me Ray Cokes!" },
+        { text: "Finger-licking!" },
+        { text: "Thematic!" },
+        { text: "Pneumatic!" },
+        { text: "Sublime!" },
+        { text: "Octagonal!" },
+        { text: "Une baguette!" },
+        { text: "Gargamel plays it!" },
+        { text: "Rita is the new top dog!" },
+        { text: "SWM forever!" },
+        { text: "Representing Edsbyn!" },
+        { text: "Matt Damon!" },
+        { text: "Supercalifragilisticexpialidocious!" },
+        { text: "Consummate V's!" },
+        { text: "Cow Tools!" },
+        { text: "Double buffered!" },
+        { text: "Fan fiction!" },
+        { text: "Flaxkikare!" },
+        { text: "Jason! Jason! Jason!" },
+        { text: "Hotter than the sun!" },
+        { text: "Internet enabled!" },
+        { text: "Autonomous!" },
+        { text: "Engage!" },
+        { text: "Fantasy!" },
+        { text: "DRR! DRR! DRR!" },
+        { text: "Kick it root down!" },
+        { text: "Regional resources!" },
+        { text: "Woo, facepunch!" },
+        { text: "Woo, somethingawful!" },
+        { text: "Woo, tigsource!" },
+        { text: "Woo, worldofminecraft!" },
+        { text: "Woo, reddit!" },
+        { text: "Woo, 2pp!" },
+        { text: "Google anlyticsed!" },
+        { text: "Now supports åäö!" },
+        { text: "Give us Gordon!" },
+        { text: "Tip your waiter!" },
+        { text: "Very fun!" },
+        { text: "12345 is a bad password!" },
+        { text: "Vote for net neutrality!" },
+        { text: "Lives in a pineapple under the sea!" },
+        { text: "MAP11 has two names!" },
+        { text: "Omnipotent!" },
+        { text: "Gasp!" },
+        { text: "...!" },
+        { text: "Bees, bees, bees, bees!" },
+        { text: "Jag känner en bot!" },
+        { text: "This text is hard to read if you play the game at the default resolution, but at 1080p it's fine!" },
+        { text: "Haha, LOL!" },
+        { text: "Hampsterdance!" },
+        { text: "Menger sponge!" },
+        { text: "idspispopd!" },
+        { text: "Eple (original edit)!" },
+        { text: "So fresh, so clean!" },
+        { text: "Slow acting portals!" },
+        { text: "Try the Nether!" },
+        { text: "Don't look directly at the bugs!" },
+        { text: "Oh, ok, Pigmen!" },
+        { text: "Finally with ladders!" },
+        { text: "Scary!" },
+        { text: "Play Minecraft, Watch Topgear, Get Pig!" },
+        { text: "Twittered about!" },
+        { text: "Jump up, jump up, and get down!" },
+        { text: "Joel is neat!" },
+        { text: "A riddle, wrapped in a mystery!" },
+        { text: "This parrot is no more! It has ceased to be!" },
+        { text: "Welcome to your Doom!" },
+        { text: "Stay a while, stay forever!" },
+        { text: "Stay a while and listen!" },
+        { text: "Treatment for your rash!" },
+        { text: "\"Autological\" is!" },
+        { text: "Information wants to be free!" },
+        { text: "\"Almost never\" is an interesting concept!" },
+        { text: "Lots of truthiness!" },
+        { text: "The creeper is a spy!" },
+        { text: "Turing complete!" },
+        { text: "It's groundbreaking!" },
+        { text: "Let our battle's begin!" },
+        { text: "The sky is the limit!" },
+        { text: "Jeb has amazing hair!" },
+        { text: "Ryan also has amazing hair!" },
+        { text: "Casual gaming!" },
+        { text: "Undefeated!" },
+        { text: "Kinda like Lemmings!" },
+        { text: "Follow the train, CJ!" },
+        { text: "Leveraging synergy!" },
+        { text: "This message will never appear on the splash screen, isn't that weird?" },
+        { text: "DungeonQuest is unfair!" },
+        { text: "90210!" },
+        { text: "Check out the far lands!" },
+        { text: "Tyrion would love it!" },
+        { text: "Also try VVVVVV!" },
+        { text: "Also try Super Meat Boy!" },
+        { text: "Also try Terraria!" },
+        { text: "Also try Mount And Blade!" },
+        { text: "Also try Project Zomboid!" },
+        { text: "Also try World of Goo!" },
+        { text: "Also try Limbo!" },
+        { text: "Also try Pixeljunk Shooter!" },
+        { text: "Also try Braid!" },
+        { text: "That's super!" },
+        { text: "Bread is pain!" },
+        { text: "Read more books!" },
+        { text: "Khaaaaaaaaan!" },
+        { text: "Less addictive than TV Tropes!" },
+        { text: "More addictive than lemonade!" },
+        { text: "Bigger than a bread box!" },
+        { text: "Millions of peaches!" },
+        { text: "Fnord!" },
+        { text: "This is my true form!" },
+        { text: "Don't bother with the clones!" },
+        { text: "Pumpkinhead!" },
+        { text: "Made by Jeb!" },
+        { text: "Has an ending!" },
+        { text: "Finally complete!" },
+        { text: "Feature packed!" },
+        { text: "Boots with the fur!" },
+        { text: "Stop, hammertime!" },
+        { text: "Testificates!" },
+        { text: "Conventional!" },
+        { text: "Homeomorphic to a 3-sphere!" },
+        { text: "Doesn't avoid double negatives!" },
+        { text: "Place ALL the blocks!" },
+        { text: "Does barrel rolls!" },
+        { text: "Meeting expectations!" },
+        { text: "PC gaming since 1873!" },
+        { text: "Ghoughpteighbteau tchoghs!" },
+        { text: "Déjà vu!" },
+        { text: "Déjà vu!" },
+        { text: "Got your nose!" },
+        { text: "Haley loves Elan!" },
+        { text: "Afraid of the big, black bat!" },
+        { text: "Doesn't use the U-word!" },
+        { text: "Child's play!" },
+        { text: "See you next Friday or so!" },
+        { text: "From the streets of Södermalm!" },
+        { text: "150 bpm for 400000 minutes!" },
+        { text: "Technologic!" },
+        { text: "Funk soul brother!" },
+        { text: "Pumpa kungen!" },
+        { text: "日本ハロー！" },
+        { text: "한국 안녕하세요!" },
+        { text: "Helo Cymru!" },
+        { text: "Cześć Polsko!" },
+        { text: "你好中国！" },
+        { text: "Γεια σου Ελλάδα!" },
+        { text: "My life for Aiur!" },
+        { text: "Lennart lennart = new Lennart()" },
+        { text: "I see your vocabulary has improved!" },
+        { text: "Who put it there?" },
+        { text: "You can't explain that!" },
+        { text: "if not ok then return end" },
+        { text: "§1C§2o§3l§4o§5r§6m§7a§8t§9i§ac" },
+        { text: "§kFUNKY LOL" },
+        { text: "Big Pointy Teeth!" },
+        { text: "Bekarton guards the gate!" },
+        { text: "Mmmph, mmph!" },
+        { text: "Don't feed avocados to parrots!" },
+        { text: "Swords for everyone!" },
+        { text: "Plz reply to my tweet!" },
+        { text: ".party()!" },
+        { text: "Take her pillow!" },
+        { text: "Put that cookie down!" },
+        { text: "Pretty scary!" },
+        { text: "I have a suggestion." },
+        { text: "Now with extra hugs!" },
+        { text: "Java 16 + 1 = 17!" },
+        { text: "Woah." },
+        { text: "HURNERJSGER?" },
+        { text: "What's up, Doc?" },
+        { text: "Now contains 32 random daily cats!" },
+        { text: "That's Numberwang!" },
+        { text: "pls rt" },
+        { text: "Do you want to join my server?" },
+        { text: "Put a little fence around it!" },
+        { text: "Throw a blanket over it!" },
+        { text: "One day, somewhere in the future, my work will be quoted!" },
+        { text: "Now with additional stuff!" },
+        { text: "Extra things!" },
+        { text: "Yay, puppies for everyone!" },
+        { text: "So sweet, like a nice bon bon!" },
+        { text: "Very influential in its circle!" },
+        { text: "Now With Multiplayer!" },
+        { text: "Rise from your grave!" },
+        { text: "Warning! A huge battleship \"STEVE\" is approaching fast!" },
+        { text: "Blue warrior shot the food!" },
+        { text: "Run, coward! I hunger!" },
+        { text: "Flavor with no seasoning!" },
+        { text: "Strange, but not a stranger!" },
+        { text: "Tougher than diamonds, rich like cream!" },
+        { text: "It swings, it jives!" },
+        { text: "Cruising streets for gold!" },
+      
+        
+        
+    ];
+    function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+    // 定义弹幕间隔
+    var interval = 200;
+    // 定义弹幕位置
+    var topArr = [];
+    for (var i = 20; i < 100; i++) {
+        topArr.push(i * 5);
+    }
+    // 定义弹幕索引
+    var index = 0;
+    // 定义弹幕定时器
+    var timer = setInterval(function() {
+        // 获取弹幕数据
+        var bullet = data[index];
+        // 创建弹幕元素
+        var span = document.createElement('span');
+        span.className = 'bullet';
+        span.innerText = bullet.text;
+        span.style.color = getRandomColor();
+        // 随机获取弹幕位置
+        var top = topArr[Math.floor(Math.random() * topArr.length)];
+        span.style.top = top + 'px';
+        // 随机设置字体大小
+        var fontSize = Math.floor(Math.random() * 30) + 15; // 随机生成15-35之间的字体大小
+        span.style.fontSize = fontSize + 'px';
+        // 随机设置弹幕速度
+        var speed = Math.floor(Math.random() * 10) + 1; // 随机生成1-3之间的速度
+        // 将弹幕元素添加到容器中
+        container.appendChild(span);
+        // 计算弹幕宽度
+        var width = span.offsetWidth;
+        // 定义弹幕起始位置
+        var left = container.offsetWidth;
+        span.style.left = left + 'px';
+        // 定义弹幕移动定时器
+        var bulletTimer = setInterval(function() {
+            // 计算弹幕当前位置
+            left -= speed;
+            span.style.left = left + 'px';
+            // 判断弹幕是否移出容器
+            if (left < -width) {
+                // 移除弹幕元素
+                container.removeChild(span);
+                // 清除弹幕移动定时器
+                clearInterval(bulletTimer);
+            }
+        }, 10);
+        // 更新弹幕索引
+        index++;
+        if (index >= data.length) {
+            index = 0;
+        }
+    }, interval);
   
 </script>
 </body>
