@@ -1,71 +1,44 @@
 <!DOCTYPE html>
-   <html lang="ch">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minecraft Java Title Screen</title>
+  <style>
+    body {
+      background-color: #EF323D; /* 设置背景颜色为浅灰色 */
+    }
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .outer-square {
+      width: 39%;
+      height: 2.5%;
+      background-color: #EF323D;
+      margin-top: 300px; /* 调整正方形与图片之间的间距 */
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <img src="assets/Mojang.png" alt="" style="width: 40%;">
+      <div class="outer-square" id="animationContainer"><img src="assets/dh.gif" alt="" style="width: 100%;"></div>
+    </div>
+  </div>
 
-      <!--=============== CSS ===============-->
-      <link rel="stylesheet" href="assets\css/styles.css">
-
-      <title>Minecraft一角钱的个人主页</title>
-   </head>
-   <body>
-      <!--==================== HEADER ====================-->
-      <header class="header" id="header">
-         <nav class="nav container">
-            <a href="" class="nav__logo">Minecraft一角钱的个人主页</a>
-
-            <div class="nav__menu" id="nav-menu">
-               <ul class="nav__list">
-                  <li class="nav__item">
-                     <a href="index.html" class="nav__link">主页</a>
-                  </li>
-
-                  <li class="nav__item">
-                     <a href="https://space.bilibili.com/1527364468" class="nav__link">BiliBili</a>
-                  </li>
-
-                  <li class="nav__item">
-                     <a href="html/index_RMCL.html" class="nav__link">RMCL</a>
-                  </li>
-
-                  <li class="nav__item">
-                    <a href="about.html" class="nav__link">U盘启动器制作器</a>
-                  </li>
-
-                  <li class="nav__item">
-                     <a href="https://afdian.net/a/yjq666/plan" class="nav__link">赞助</a>
-                  </li>
-
-                  <li class="nav__item">
-                     <a href="#" class="nav__link">关于</a>
-                  </li>
-               </ul>
-
-               <!-- Close button -->
-               <div class="nav__close" id="nav-close">
-                  <i class="ri-close-line"></i>
-               </div>
-            </div>
-         </nav>
-      </header>
-
-      <!--==================== SEARCH ====================-->
-      <div class="search" id="search">
-         <form action="" class="search__form">
-            <i class="ri-search-line search__icon"></i>
-            <input type="search" placeholder="What are you looking for?" class="search__input">
-         </form>
-
-         <i class="ri-close-line search__close" id="search-close"></i>
-
-      </div>
-      <!--==================== MAIN ====================-->
-      <main class="main">
-         <img src="assets\img/bg-image-About.png" alt="image" class="main__bg">
-      </main>
-      
-      <!--=============== MAIN JS ===============-->
-      <script src="assets\js/main.js"></script>
-   </body>
+  <script>
+    setTimeout(function() {
+      var animationContainer = document.getElementById('animationContainer');
+      animationContainer.innerHTML = '<img src="assets\\dh.gif" style="width: 100%;" alt="">';
+    }, 3000); // 3000毫秒即3秒
+    setTimeout(function() {
+      window.location.href = 'home.html'; // 将网址替换为你想要跳转的网页
+    }, 3000); // 3000毫秒即3秒
+  </script>
+</body>
 </html>
