@@ -153,9 +153,7 @@
 <div class="footer">
   <p>作者：Minecraft一角钱</p>
   <a href="https://minecraftyjq.github.io">作者个人主页</a>
-  <br>
   <a href="https://space.bilibili.com/1527364468">作者B站主页</a>
-  <br>
   <a href="https://afdian.net/a/yjq666">捐赠</a>
 </div>
 
@@ -170,10 +168,16 @@
       firework.remove();
     }, 500);
   });
-    function logins() {
-      window.location.href = "../../../index.html";
+  function redirectToUrl() {
+      var url = document.getElementById("urlInput").value;
+      window.location.href = "..\\"+url+"\\index.html";
     }
-  
+  function  downloadImage(names) {
+      var link = document.createElement('a');
+      link.href = names+".jpg"; // 替换为你的图片链接
+      link.download = names+".jpg"; // 下载时的文件名
+      link.click();
+    }
 </script>
 </body>
 </html>
