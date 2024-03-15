@@ -18,11 +18,27 @@
       border: none;
       cursor: pointer;
     }
+    a {
+      text-decoration: none;
+    }
+    body {
+      animation: changeBackground 10s infinite;
+      background-image: url("https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wwu6");
+      background-size: 100%;
+      
+    }
+    @keyframes changeBackground {
+      0% { background-image: url("https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wwu6"); }
+      25% { background-image: url("https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wpp7"); }
+      50% { background-image: url("https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wHgh"); }
+      75% { background-image: url("https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wEae"); }
+      100% { background-image: url("https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wB7w"); }
+    }
   </style>
 </head>
 <body>
   <div class="center">
-    <img src="assets/minecraft.png" alt="" style="width: 700px;;margin-top: 8%;">
+    <img src="assets/minecraft.png" alt="" style="width: 700px;margin-top: 8%;">
   </div>
   <div class="center" style="margin-top: 5%;">
     <button class="button">
@@ -54,6 +70,5 @@
     </button>
     
   </div>
-  <p>Html:Minecraft一角钱</p>
 </body>
 </html>
