@@ -1,0 +1,51 @@
+input[type="radio"] {
+    display: none;
+}
+.radio-button {
+    display: inline-block;
+    background-color: #707070;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+button {
+    background-color: #707070;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border: none; /* 添加这行代码去除按钮边框 */
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px auto; /* 上下居中 */
+    display: block; /* 将按钮转换为块级元素 */
+}
+
+button:hover {
+    background-color: #555555;
+}
+input[type="radio"]:checked + label {
+    background-color: #000000;
+}
+.radio-button:hover {
+    background-color: #555555;
+}
+img {
+    top: 10px;
+    left: 10px;
+    max-width: 8%;
+}
