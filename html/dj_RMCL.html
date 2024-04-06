@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>接入RMCL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #0c0020;
+            color: #ffffff;
+            line-height: 1;
+            
+        }
+        h1 {
+            text-align: left;
+        }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .code-container {
+            background-color: #00578a;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        code {
+            display: block;
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: left;
+            margin: 0;
+            top: 5px;
+            position: relative;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .copy-btn {
+            position: absolute;
+            top:10px;
+            right: 10px;
+            background-color: #00aeff;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <br><br>
+        <div style="line-height: 0;">
+            <br>
+            <h1 style="font-size: 40px;">RMCL - 调用</h1>
+            <p style="color: #f1cd00;">该篇内容将描述如何通过CMD命令调用RMCL</p>
+        </div>
+        <br>
+        <p>首先，我们先了解一个命令：-h</p>
+        <div class="code-container">
+            <h2 style="font-size: 14px;">命令提示符程序</h2>
+            <button class="copy-btn" onclick="copyCode()">复制</button>
+            <code id="codeBlock" style="line-height: 1;">
+                RMCL.exe -h
+            </code>
+        </div>
+        <p>在使用这个命令后，RMCL会有一个弹窗，上面有命令用法</p>
+        <div>
+            <img src="assets/img/RMCL_Help_Window.png" alt="">
+            <p style="color: #636363;font-size: 9px;text-align: center;">帮助窗口</p>
+        </div>
+        <p>有了这个命令后，我们可以知道一些RMCL的参数命令。</p>
+    </article>
+
+    <script>
+        function copyCode() {
+            const codeBlock = document.getElementById('codeBlock');
+            const range = document.createRange();
+            range.selectNode(codeBlock);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            alert('命令已复制！');
+        }
+        function adjustContainerHeight() {
+            const codeBlock = document.getElementById('codeBlock');
+            const container = document.querySelector('.code-container');
+            container.style.height = codeBlock.offsetHeight + 45+ 'px';
+        }
+        window.onload = adjustContainerHeight;
+        document.getElementById('codeBlock').addEventListener('input', adjustContainerHeight);
+    </script>
+</body>
+</html>
