@@ -1,15 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    .photo {
-      display: block;
-      margin-bottom: 10px; /* 设置照片之间的间距 */
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="../../index.css">
+    <meta charset="UTF-8">
+    <title>弹幕效果</title>
+    <style>
+        /* 设置弹幕的样式 */
+        .bullet {
+            position: absolute;
+            font-size: 20px;
+            color: white;
+            text-shadow: 1px 1px 1px black;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-  <img class="photo" src="..\assets\img\1\1.JPG" alt="Left Photo">
-  <img class="photo" src="..\assets\img\1\1.JPG" alt="Right Photo">
+<div id="container"></div>
+<script>
+    // 获取弹幕容器
+    var container = document.getElementById('container');
+    // 定义弹幕数据
+    var data = [
+        { text: '3...3厘米？那天，全班都知道了周周三厘米...', color: 'red' },
+        { text: '体委和班长...', color: 'green' },
+        { text: '娇小姐在百度搜yellow片？', color: 'blue' },
+        { text: '有人一个月换36个！',color:'red'}
+    ];
+    // 定义弹幕间隔
+    var interval = 1000;
+    // 定义弹幕位置
+    var topArr = [];
+    for (var i = 0; i < 20; i++) {
+        topArr.push(i * 30);
+    }
+    // 定义弹幕索引
+    var index = 0;
+    // 定义弹幕定时器
+    var timer = setInterval(function() {
+        // 获取弹幕数据
+        var bullet = data[index];
+        // 创建弹幕元素
+        var span = document.createElement('span');
+        span.className = 'bullet';
+        span.innerText = bullet.text;
+        span.style.color = bullet.color;
+        // 随机获取弹幕位置
+        var top = topArr[Math.floor(Math.random() * topArr.length)];
+        span.style.top = top + 'px';
+        // 随机设置字体大小
+        var fontSize = Math.floor(Math.random() * 20) + 15; // 随机生成15-35之间的字体大小
+        span.style.fontSize = fontSize + 'px';
+        // 随机设置弹幕速度
+        var speed = Math.floor(Math.random() * 3) + 1; // 随机生成1-3之间的速度
+        // 将弹幕元素添加到容器中
+        container.appendChild(span);
+        // 计算弹幕宽度
+        var width = span.offsetWidth;
+        // 定义弹幕起始位置
+        var left = container.offsetWidth;
+        span.style.left = left + 'px';
+        // 定义弹幕移动定时器
+        var bulletTimer = setInterval(function() {
+            // 计算弹幕当前位置
+            left -= speed;
+            span.style.left = left + 'px';
+            // 判断弹幕是否移出容器
+            if (left < -width) {
+                // 移除弹幕元素
+                container.removeChild(span);
+                // 清除弹幕移动定时器
+                clearInterval(bulletTimer);
+            }
+        }, 10);
+        // 更新弹幕索引
+        index++;
+        if (index >= data.length) {
+            index = 0;
+        }
+    }, interval);
+</script>
 </body>
 </html>

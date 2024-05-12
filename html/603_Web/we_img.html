@@ -4,12 +4,34 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+  <link rel="stylesheet" type="text/css" href="assets/index.css">
   <style>
     body {
       margin: 0;
       padding: 0;
     }
+    .loader-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .loader {
+            border: 10px solid #f3f3f3;
+            border-radius: 100%;
+            border-top: 10px solid #008000;
+            width: 80px;
+            height: 80px;
+            animation: spin 500ms linear infinite;
+            margin-bottom: 20px;
+        }
 
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+            
+        }
     .navbar {
       overflow: hidden;
       background-color: #096800;
@@ -48,9 +70,6 @@
       
     }
 
-    .content {
-      padding-top: 100px;
-    }
     .firework {
       position: absolute;
       width: 10px;
@@ -105,8 +124,12 @@
   </div>
 </div>
 
-<div class="content">
-  
+<div>
+  <div class="loader-container">
+    <div class="loader"></div>
+    
+    <h1 style="font-size: 20px;color: #008000;">加载中...</h1>
+</div>
 </div>
 <div class="footer">
   <p>作者：Minecraft一角钱</p>
